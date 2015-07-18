@@ -11,3 +11,4 @@ Computer Science Graduate Students,
 Stony Brook University, New York
 
 ### How it works
+In this section, we elaborate upon how the tool works
