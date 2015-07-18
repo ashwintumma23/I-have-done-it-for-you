@@ -34,5 +34,7 @@ On similar lines to Java application, the Python application is also failed deli
 
 Again, the choice of whether to fail the build, or to make it unstable, will be dependent on the implementing teams.
 
-### API's Used
-The tool depends upon Github, Atlassian Jira, Stack Exchange API for logging issues. The demo applications use twitter4j for Twitter rest calls.
+### Infrastructural Details
+Public API's used: [Github](https://developer.github.com/v3/), [Atlassian Jira](https://docs.atlassian.com/jira/REST/latest/), [Stack Exchange](https://api.stackexchange.com/)
+Jenkins Runs on : Amazon EC2
+Altassian Jira: Free Edition on Atlassian Cloud
