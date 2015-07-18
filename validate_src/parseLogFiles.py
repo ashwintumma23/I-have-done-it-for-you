@@ -71,7 +71,7 @@ def createJiraIssue(exception_query_string, stackExItems):
 
 	filecontents = filecontents.replace("__project__","LHD")	
 	filecontents = filecontents.replace("__summary__","Build "+jenkins_build_number+" Error: "+exception_query_string)
-	filecontents = filecontents.replace("__description__","The Jenkins build failed with the exception marked in the title.\\\\View the complete error log at:"+jenkins_build_url+"\\We have the following possible solutions on Stack Exchange which match the Exception.\n"+str(stackExItems[0])+"\n"+str(stackExItems[1])+"\n"+str(stackExItems[2])+"\n"+str(stackExItems[3])+"\n")	
+	filecontents = filecontents.replace("__description__","The Jenkins build failed with the exception marked in the title.\\\\View the complete error log at:"+jenkins_build_url+"We have the following possible solutions on Stack Exchange which match the Exception.\n"+str(stackExItems[0])+"\n"+str(stackExItems[1])+"\n"+str(stackExItems[2])+"\n"+str(stackExItems[3])+"\n")	
 	filecontents = filecontents.replace("__type__","Task")	
 
 	jiraInput = open("validate_src/JiraInput.txt","w")
