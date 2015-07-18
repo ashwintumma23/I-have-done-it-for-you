@@ -29,8 +29,9 @@ def queryStackExchange(query):
 	return stackExItems	
 
 def createGitHubIssue(exception_query_string, stackExItems):
+	jenkins_build_number = os.environ.get('BUILD_NUMBER')
 	print "\n\n\n\t\t\t str = " + exception_query_string
-	curl_command = 'curl --user "ashwintumma23:APGA2dPD" -i -d \'{"title": "BUILD_EXCEPTION: '+exception_query_string+'","body": "The Jenkins build failed. We have the following possible solutions on Stack Exchange which match the Exception.\\n'+str(stackExItems[0])+'\\n'+str(stackExItems[1])+'","labels": ["design"]}\' https://api.github.com/repos/ashwintumma23/LinkedInHackDay/issues'
+	curl_command = 'curl --user "ashwintumma23:APGA2dPD" -i -d \'{"title": "Build '+jenkins_build_number+' Error: '+exception_query_string+'","body": "The Jenkins build failed. We have the following possible solutions on Stack Exchange which match the Exception.\\n'+str(stackExItems[0])+'\\n'+str(stackExItems[1])+'","labels": ["design"]}\' https://api.github.com/repos/ashwintumma23/LinkedInHackDay/issues'
 
 	print curl_command
 	os.system(curl_command)
