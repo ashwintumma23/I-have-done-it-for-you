@@ -16,11 +16,19 @@ Computer Science Graduate Students,
 
 Stony Brook University, New York
 
+### Why?
+Why did we build this hack? Simple, because, we wish we had it :smile:
+
 ### How it works
 In this section, we elaborate upon how the tool works. For demonstation purposes we have two applications which create log files for any issues faced during their core program execution and during test cases.
 
 ##### Java Application
-The Twitter REST API application uses [twitter4j](http://twitter4j.org) to fetch followers for the user, fetch recent tweets, Geolocation based tweet search. Each operation is an independent test case and logs to error file upon exception. Open building the project the tools parses the log files and logs on exceptions to Github Issues, Atlassian Jira Issues depending upon build location. The issues is searched using stackoverflow api for possible fixes. The issue description contains the links for the possible fixes.
+The Twitter REST API application uses [twitter4j](http://twitter4j.org) to fetch followers for the user, fetch recent tweets, Geolocation based tweet search. Each operation is an independent test case and logs to error file upon exception. Open building the project the tools parses the log files and logs on exceptions to Github Issues, Atlassian Jira Issues depending on the build number. The issue is searched using Stackoverflow API for possible fixes. The issue description contains the Stackoverflow links for the possible fixes.
+
+##### Python Application
+On similar lines to Java application, the Python application is also failed deliberately, so that there are exceptions raised. Instead of failing the build completely, we make the build unstable, in order to indicate the fact that there were issues seen. 
+
+Again, the choice of whether to fail the build, or to make it unstable, will be dependent on the implementing teams.
 
 ### API's Used
 The tool depends upon Github, Atlassian Jira, Stack Exchange API for logging issues. The demo applications use twitter4j for Twitter rest calls.
