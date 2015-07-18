@@ -9,18 +9,18 @@ IHDITFY - I have done it for you : Code repository for automation tool that we b
 
 ### Contributors
 Ashwin Tumma - ashwin.tumma23@gmail.com
+
 Nikhil Ambekar - nikhil.a.ambekar@gmail.com
+
 Computer Science Graduate Students,
+
 Stony Brook University, New York
 
 ### How it works
-In this section, we elaborate upon how the tool works
+In this section, we elaborate upon how the tool works. For demonstation purposes we have two applications which create log files for any issues faced during their core program execution and during test cases.
 
-For demonstation purposes we have two applications which log on to the log files for any issues faced during execution of test cases.
-
-The twitter rest api application uses [twitter4j](http://twitter4j.org) to fetch followers for the user, fetch recent tweets, Geolocation based tweet search. Each operation is an independent test case and logs tto error file upon exception. Open building the project the tools parses the log files and logs on exceptions to Github Issues, Atlassian Jira Issues depending upon build location. The issues is searched using stackoverflow api for possible fixes. The issue description contains the links for the possible fixes.
+##### Java Application
+The Twitter REST API application uses [twitter4j](http://twitter4j.org) to fetch followers for the user, fetch recent tweets, Geolocation based tweet search. Each operation is an independent test case and logs to error file upon exception. Open building the project the tools parses the log files and logs on exceptions to Github Issues, Atlassian Jira Issues depending upon build location. The issues is searched using stackoverflow api for possible fixes. The issue description contains the links for the possible fixes.
 
 ### API's Used
-The tool depends upon Github, Atlassian Jira , Stack Exchange api for logging issues.
-
-The demo applications use twitter4j for Twitter rest calls
+The tool depends upon Github, Atlassian Jira, Stack Exchange API for logging issues. The demo applications use twitter4j for Twitter rest calls.
