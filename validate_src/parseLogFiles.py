@@ -6,17 +6,16 @@ import os
 def parse_java_logs():
 	
 	currentJavaExceptions = []
-	currentJavaExceptionsSet = set(currentJavaExceptions) 
 	# Open java log file and parse till the exception is detected
 	fjava = open("java_src/Testng/test.log","r")
 	for line in fjava:
 		if "Exception" in line:
 			exception_query_string = line.split(":")[0].strip()
 			
-			if exception_query_string in currentJavaExceptionsSet:
+			if exception_query_string in currentJavaExceptions:
 				continue
 			else:
-				currentJavaExceptionsSet.append(exception_query_string)
+				currentJavaExceptions.append(exception_query_string)
 				stackExItems = queryStackExchange(exception_query_string)
 				createGitHubIssue(exception_query_string, stackExItems)
 				
