@@ -6,7 +6,7 @@ import os
 def parse_java_logs():
 	
 	# Open java log file and parse till the exception is detected
-	fjava = open("../java_src/Testng/test.log","r")
+	fjava = open("test.log","r")
 	for line in fjava:
 		if "Exception" in line:
 			print line
@@ -42,4 +42,3 @@ def main():
 	
 
 main()
-
