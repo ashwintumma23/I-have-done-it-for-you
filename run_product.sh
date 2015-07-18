@@ -1,5 +1,5 @@
 #!/bin/bash +e
-
+echo "[Started Product Build]"
 # Run Java Application, and its JUnit Test Cases 
 cd java_src/Testng
 /home/ubuntu/jdk1.7.0_79/bin/javac -cp .:lib/* TestClass.java
@@ -12,3 +12,4 @@ python python_sample_code.py > python_output.output 2> python_program_log.log
 # Run tool for parsing the logs and in case of errors, log errors to Github Issues
 cd ../
 python validate_src/parseLogFiles.py > /dev/null
+echo "[Finished Product Build]"
