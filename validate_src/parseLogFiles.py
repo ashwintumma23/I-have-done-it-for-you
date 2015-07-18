@@ -49,14 +49,17 @@ def queryStackExchange(query):
 
 # Create an issue in Github Repository with headless user
 def createGitHubIssue(exception_query_string, stackExItems):
+	print "[Started creating GitHub issue]"
 	jenkins_build_number = os.environ.get('BUILD_NUMBER')
 	jenkins_build_url = os.environ.get('BUILD_URL')
 	curl_command = 'curl --user "jenkinslinkedin15:APGA2dPD" -i -d \'{"title": "Build '+jenkins_build_number+' Error: '+exception_query_string+'","body": "The Jenkins build failed with the exception marked in the title. \\nView the complete error log at: [Jenkins Build '+jenkins_build_number+']('+jenkins_build_url+')\\n\\nWe have the following possible solutions on Stack Exchange which match the Exception.\\n'+str(stackExItems[0])+'\\n'+str(stackExItems[1])+'\\n'+str(stackExItems[2])+'\\n'+str(stackExItems[3])+'\\n","labels": ["bug"]}\' https://api.github.com/repos/ashwintumma23/LinkedInHackDay/issues'
 	os.system(curl_command)
+	print "[Finished creating GitHub issue]"
 
 
 # Create an issue in JIRA
 def createJiraIssue(exception_query_string, stackExItems):
+	print "[Starting creating JIRA issue]"
 	jenkins_build_number = os.environ.get('BUILD_NUMBER')
 	jenkins_build_url = os.environ.get('BUILD_URL')
 
@@ -68,7 +71,7 @@ def createJiraIssue(exception_query_string, stackExItems):
 
 	filecontents = filecontents.replace("__project__","LHD")	
 	filecontents = filecontents.replace("__summary__","Build "+jenkins_build_number+" Error: "+exception_query_string)
-	filecontents = filecontents.replace("__description__","The Jenkins build failed with the exception marked in the title.")	
+	filecontents = filecontents.replace("__description__","The Jenkins build failed with the exception marked in the title.\nView the complete error log at:"+jenkins_build_url+"\nWe have the following possible solutions on Stack Exchange which match the Exception.\n"+str(stackExItems[0])+"\n"+str(stackExItems[1])+"\n"str(stackExItems[2])+"\n"+str(stackExItems[3])+"\n")	
 	filecontents = filecontents.replace("__type__","Task")	
 
 	jiraInput = open("validate_src/JiraInput.txt","w")
@@ -76,10 +79,8 @@ def createJiraIssue(exception_query_string, stackExItems):
 	jiraInput.close()
 	
 	curl_command = 'curl -u admin:APGA2dPD -X POST -d @validate_src/JiraInput.txt https://linkedinhackday.atlassian.net/rest/api/2/issue --header "Content-Type:application/json"'
-		
-	#curl_command = 'curl --user "jenkinslinkedin15:APGA2dPD" -i -d \'{"title": "Build '+jenkins_build_number+' Error: '+exception_query_string+'","body": "The Jenkins build failed with the exception marked in the title. \\nView the complete error log at: [Jenkins Build '+jenkins_build_number+']('+jenkins_build_url+')\\n\\nWe have the following possible solutions on Stack Exchange which match the Exception.\\n'+str(stackExItems[0])+'\\n'+str(stackExItems[1])+'\\n'+str(stackExItems[2])+'\\n'+str(stackExItems[3])+'\\n","labels": ["bug"]}\' https://api.github.com/repos/ashwintumma23/LinkedInHackDay/issues'
 	os.system(curl_command)
-	print "Done with JIRA issue logging"
+	print "[Finished creating JIRA issue]"
 	
 def main():
 	parse_java_logs()
