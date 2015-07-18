@@ -61,7 +61,7 @@ def createJiraIssue(exception_query_string, stackExItems):
 	jenkins_build_url = os.environ.get('BUILD_URL')
 
 	filecontents = ""
-	jiraInputTemplate = open("JiraInputTemplate.txt","r")
+	jiraInputTemplate = open("validate_src/JiraInputTemplate.txt","r")
 	for line in jiraInputTemplate:
 		filecontents += line.strip()
 	jiraInputTemplate.close()
@@ -71,7 +71,7 @@ def createJiraIssue(exception_query_string, stackExItems):
 	filecontents = filecontents.replace("__description__","The Jenkins build failed with the exception marked in the title.")	
 	filecontents = filecontents.replace("__type__","Task")	
 
-	jiraInput = open("JiraInput.txt","w")
+	jiraInput = open("validate_src/JiraInput.txt","w")
 	jiraInput.write(filecontents)
 	jiraInput.close()
 	
