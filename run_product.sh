@@ -7,4 +7,5 @@ cd java_src/Testng
 
 # Run tool for parsing the logs and in case of errors, log errors to Github Issues
 cd ../../
+pwd
 python validate_src/parseLogFiles.py > /dev/null
