@@ -1,0 +1,13 @@
+{
+    "fields":{
+       "project":
+       { 
+          "key":"__project__"
+       },
+       "summary":"__summary__",
+       "description":"__description__",
+       "issuetype":{
+          "name":"__type__"
+       }
+   }
+}
