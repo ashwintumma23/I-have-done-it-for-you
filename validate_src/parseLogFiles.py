@@ -75,7 +75,7 @@ def createJiraIssue(exception_query_string, stackExItems):
 	jiraInput.write(filecontents)
 	jiraInput.close()
 	
-	curl_command = 'curl -u admin:APGA2dPD -X POST -d @JiraInput.txt https://linkedinhackday.atlassian.net/rest/api/2/issue --header "Content-Type:application/json"'
+	curl_command = 'curl -u admin:APGA2dPD -X POST -d @validate_src/JiraInput.txt https://linkedinhackday.atlassian.net/rest/api/2/issue --header "Content-Type:application/json"'
 		
 	#curl_command = 'curl --user "jenkinslinkedin15:APGA2dPD" -i -d \'{"title": "Build '+jenkins_build_number+' Error: '+exception_query_string+'","body": "The Jenkins build failed with the exception marked in the title. \\nView the complete error log at: [Jenkins Build '+jenkins_build_number+']('+jenkins_build_url+')\\n\\nWe have the following possible solutions on Stack Exchange which match the Exception.\\n'+str(stackExItems[0])+'\\n'+str(stackExItems[1])+'\\n'+str(stackExItems[2])+'\\n'+str(stackExItems[3])+'\\n","labels": ["bug"]}\' https://api.github.com/repos/ashwintumma23/LinkedInHackDay/issues'
 	os.system(curl_command)
