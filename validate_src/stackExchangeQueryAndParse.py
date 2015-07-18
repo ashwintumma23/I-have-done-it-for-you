@@ -4,7 +4,7 @@ import urllib2
 
 
 def queryStackExchange():
-	url = "https://api.stackexchange.com/2.2/search/advanced?order=desc&sort=activity&q=json%20file%20error&site=stackoverflow"
+	url = "https://api.stackexchange.com/2.2/search/advanced?order=desc&sort=activity&q=ZeroDivisionError: integer division or modulo by zero&site=stackoverflow"
 	with requests.Session() as session:
 		js_response = session.get(url).json()
 		print js_response['items'][0]['link']
