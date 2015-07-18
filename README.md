@@ -15,3 +15,7 @@ Stony Brook University, New York
 
 ### How it works
 In this section, we elaborate upon how the tool works
+
+For demonstation purposes we have two applications which log on to the log files for any issues faced during execution of test cases.
+
+The twitter rest api application uses [twitter4j](http://twitter4j.org) to fetch 
