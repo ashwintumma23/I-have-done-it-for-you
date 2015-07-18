@@ -9,14 +9,22 @@ def parse_java_logs():
 	fjava = open("java_src/Testng/test.log","r")
 	for line in fjava:
 		if "Exception" in line:
-			print line
 			exception_query_string = line.split(":")[0].strip()
-			print exception_query_string
 			stackExItems = queryStackExchange(exception_query_string)
 			createGitHubIssue(exception_query_string, stackExItems)
 				
 	fjava.close()
 
+def parse_python_logs():
+	# Open Python log file and parse till the exception is detected
+	fpython = open("python_src/python_program_log.log","r")
+	for line in fpython:
+		if "Error" in line:
+			exception_query_string = line.strip()
+			exception_query_string +=  " python"
+			stackExItems = queryStackExchange(exception_query_string)
+			createGitHubIssue(exception_query_string, stackExItems)
+				
 def queryStackExchange(query):
 	stackExItems = []
         url = "https://api.stackexchange.com/2.2/search/advanced?order=desc&sort=activity&q="+query.strip()+"&site=stackoverflow"
@@ -30,16 +38,15 @@ def queryStackExchange(query):
 
 def createGitHubIssue(exception_query_string, stackExItems):
 	jenkins_build_number = os.environ.get('BUILD_NUMBER')
-	print "\n\n\n\t\t\t str = " + exception_query_string
-	curl_command = 'curl --user "ashwintumma23:APGA2dPD" -i -d \'{"title": "Build '+jenkins_build_number+' Error: '+exception_query_string+'","body": "The Jenkins build failed. We have the following possible solutions on Stack Exchange which match the Exception.\\n'+str(stackExItems[0])+'\\n'+str(stackExItems[1])+'","labels": ["design"]}\' https://api.github.com/repos/ashwintumma23/LinkedInHackDay/issues'
-
+	jenkins_build_url = os.environ.get('BUILD_URL')
+	curl_command = 'curl --user "ashwintumma23:APGA2dPD" -i -d \'{"title": "Build '+jenkins_build_number+' Error: '+exception_query_string+'","body": "The Jenkins build failed. \\nView the complete error log at: '+jenkins_build_url+'\\nWe have the following possible solutions on Stack Exchange which match the Exception.\\n'+str(stackExItems[0])+'\\n'+str(stackExItems[1])+'","labels": ["bug"]}\' https://api.github.com/repos/ashwintumma23/LinkedInHackDay/issues'
 	print curl_command
 	os.system(curl_command)
 	print "Done Logging issue on Github Repository"
 
 def main():
 	parse_java_logs()
-#	parse_python_logs()
+	parse_python_logs()
 	
 
 main()
