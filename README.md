@@ -36,5 +36,7 @@ Again, the choice of whether to fail the build, or to make it unstable, will be 
 
 ### Infrastructural Details
 Public API's used: [Github](https://developer.github.com/v3/), [Atlassian Jira](https://docs.atlassian.com/jira/REST/latest/), [Stack Exchange](https://api.stackexchange.com/)
+
 Jenkins Runs on : Amazon EC2
+
 Altassian Jira: Free Edition on Atlassian Cloud
