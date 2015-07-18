@@ -2,7 +2,7 @@
 IHDITFY - I have done it for you : Code repository for automation tool that we built at the LinkedIn Hack Day
 
 ### IHDIFY: I have done it for you
-`I have done it for you` is a tool which runs automated test suites on a product, and looks for errors in the logs. All errors identified are noted, and a issue is created in GitHub on the product's code repository.
+`I have done it for you` is a tool which runs automated test suites on a product, and looks for errors in the logs. All errors identified are noted, and a issue is created in [GitHub](https://github.com/ashwintumma23/LinkedInHackDay) on the product's code repository and on [Atlassian Jira Project](https://linkedinhackday.atlassian.net/projects/LHD).
 
 ### Build Status
 [![Build Status](http://ec2-52-10-66-119.us-west-2.compute.amazonaws.com:8080/job/LinkedInHackDay/badge/icon)](http://ec2-52-10-66-119.us-west-2.compute.amazonaws.com:8080/job/LinkedInHackDay) IHDIFY Jenkins Build
