@@ -10,6 +10,7 @@ def parse_java_logs():
 	fjava = open("java_src/Testng/test.log","r")
 	for line in fjava:
 		if "Exception" in line:
+			print "BUILD_FAILED"
 			exception_query_string = line.split(":")[0].strip()
 			
 			if exception_query_string in currentJavaExceptions:
