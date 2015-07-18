@@ -10,5 +10,5 @@ cd ../../python_src
 python python_sample_code.py > python_output.output 2> python_program_log.log
 
 # Run tool for parsing the logs and in case of errors, log errors to Github Issues
-cd ../../
+cd ../
 python validate_src/parseLogFiles.py > /dev/null
