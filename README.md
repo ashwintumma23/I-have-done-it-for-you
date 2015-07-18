@@ -7,6 +7,8 @@ IHDITFY - I have done it for you : Code repository for automation tool that we b
 ### Build Status
 http://ec2-52-10-66-119.us-west-2.compute.amazonaws.com:8080/job/LinkedInHackDay
 
+[![Build Status](http://ec2-52-10-66-119.us-west-2.compute.amazonaws.com:8080/job/LinkedInHackDay/icon)](http://ec2-52-10-66-119.us-west-2.compute.amazonaws.com:8080/job/LinkedInHackDay)
+
 ### Contributors
 Ashwin Tumma - ashwin.tumma23@gmail.com
 Nikhil Ambekar - nikhil.a.ambekar@gmail.com
