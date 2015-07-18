@@ -2,5 +2,5 @@
 
 cd java_src/Testng
 
-javac -cp .:lib/* TestClass.java
-java -cp .:lib/* org.junit.runner.JUnitCore TestClass 
+/home/ubuntu/jdk1.7.0_79/bin/javac -cp .:lib/* TestClass.java
+/home/ubuntu/jdk1.7.0_79/bin/java -cp .:lib/* org.junit.runner.JUnitCore TestClass 
