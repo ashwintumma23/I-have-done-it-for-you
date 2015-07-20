@@ -7,6 +7,8 @@ IHDITFY - I have done it for you : Code repository for automation tool that we b
 ### Build Status
 [![Build Status](http://ec2-52-10-66-119.us-west-2.compute.amazonaws.com:8080/job/LinkedInHackDay/badge/icon)](http://ec2-52-10-66-119.us-west-2.compute.amazonaws.com:8080/job/LinkedInHackDay) IHDIFY Jenkins Build
 
+[Update: July 20, 2015: Turned off the Amazon EC2 instance, in interest of saving resources, and more importantly, unavailability of EC2 credits :smile: A screenshot of Jenkins build page is [here]()]
+
 ### Contributors
 Team Name: [Pizzazz](https://www.google.com/search?q=pizzazz) 
 
